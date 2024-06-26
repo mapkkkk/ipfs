@@ -5,9 +5,9 @@ import java.io.IOException;
 public class Main {
     String serverIP = "192.168.31.208";
     int serverPort = 5001;
-    String uploadFilePath = "D:/upload";
-    String downloadFileHash = "Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD";
-    String downloadDst = "D:/download";
+    String uploadFilePath = "D:\\code\\ipfs\\ipfs\\test\\upload\\uploadtest.txt";
+    String downloadFileHash = "QmRZtguPjYdrDDZ6V2BrsUKfZoptoVPqbyYxzbZD5Wj2sz";
+    String downloadDst = "D:\\code\\ipfs\\ipfs\\test\\download\\downloadRes.txt";
 
     fileOperation fileOp = new fileOperation();
 
