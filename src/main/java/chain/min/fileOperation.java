@@ -15,10 +15,7 @@ public class fileOperation implements fileOperationInterface {
 
     public void initIPFS(String ipfsAddress, int port) {
         //初始化ipfs节点
-        String ipfsUrl = "http://" + ipfsAddress + ":" + port;
-        //创建ipfs节点连接
-        MultiAddress multiaddr = new MultiAddress(ipfsUrl);
-        this.ipfsHandle = new IPFS(multiaddr);
+        this.ipfsHandle = new IPFS(ipfsAddress, port);
         System.out.println("IPFS node initialized successfully.");
     }
 
