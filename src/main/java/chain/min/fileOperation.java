@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class fileOperation implements fileOperationInterface {
-    private IPFS ipfsHandle;
+    public IPFS ipfsHandle;
 
     public void initIPFS(String ipfsAddress, int port) {
         //初始化ipfs节点
