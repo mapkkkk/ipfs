@@ -2,6 +2,24 @@
 
 ------
 
+## 开启ipv4转发
+
+```bash
+sudo nano /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+sudo sysctl -p
+# sudo免密
+sudo nano /etc/sudoers
+ipfs ALL=(ALL) NOPASSWD: ALL
+
+# node0
+192.168.31.51
+# node1
+192.168.31.169 
+# node2
+192.168.31.215
+```
+
 ## 安装docker
 
 ```bash
@@ -79,6 +97,7 @@ nano /root/.ipfs/config
 ipfs bootstrap rm --all
 # 获取节点之间的私有密钥, 仅在主节点(node1上执行)
 go install github.com/Kubuxu/go-ipfs-swarm-key-gen/ipfs-swarm-key-gen@latest
+cd $GOPATH
 /root/go/bin/ipfs-swarm-key-gen > ~/.ipfs/swarm.key
 # 发送到其他节点
 cd /root/.ipfs
@@ -88,12 +107,16 @@ nano swarm.key
 # 查看本节点信息
 ipfs id
 # 添加ipfs连接节点
+# node0
+ipfs bootstrap add  /ip4/192.168.31.51/tcp/4001/ipfs/12D3KooWEz8i3MfjFLQq4CjEFAbGoCPVWaEpztpCM1tzB78wN7VW
 # node1
-ipfs bootstrap add  /ip4/192.168.0.11/tcp/4001/ipfs/12D3KooWAxTiC7XHg8jy346hapZpUZoUUJjaP9hFWyw5Ckhvr8pH
+ipfs bootstrap add  /ip4/192.168.31.169/tcp/4001/ipfs/12D3KooWRQKT1j6RGPpeyxt528kuUpxPq9KQMeHoJytMFTJSD6AC
 # node2
-ipfs bootstrap add  /ip4/192.168.0.11/tcp/4001/ipfs/12D3KooWFvccwYhgv2ajtAmbestALMfaHkmqBT4zn9dqGF3cw6k1
-# node3
-ipfs bootstrap add  /ip4/192.168.0.11/tcp/4001/ipfs/12D3KooWPvsC2sSxzZz867ASxSFEmQTETGL7eHxrgKY9jdUvk3gH
+ipfs bootstrap add  /ip4/192.168.31.215/tcp/4001/ipfs/12D3KooWEz8i3MfjFLQq4CjEFAbGoCPVWaEpztpCM1tzB78wN7VW
+
+ipfs swarm connect /ip4/192.168.31.169/tcp/4001/ipfs/12D3KooWRQKT1j6RGPpeyxt528kuUpxPq9KQMeHoJytMFTJSD6AC
+
+ipfs swarm connect /ip4/192.168.31.169/tcp/4001/ipfs/12D3KooWEz8i3MfjFLQq4CjEFAbGoCPVWaEpztpCM1tzB78wN7VW
 # 启动IPFS
 ipfs daemon
 # 动IPFS，并且使他后台运行
