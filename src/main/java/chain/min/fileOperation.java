@@ -3,7 +3,6 @@ package chain.min;
 import io.ipfs.api.IPFS;
 import io.ipfs.api.MerkleNode;
 import io.ipfs.api.NamedStreamable;
-import io.ipfs.multiaddr.MultiAddress;
 import io.ipfs.multihash.Multihash;
 
 import java.io.File;
@@ -11,27 +10,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class fileOperation implements fileOperationInterface {
-    public IPFS ipfsHandle;
 
-    public void initIPFS(String ipfsAddress, int port) {
-        //初始化ipfs节点
-        this.ipfsHandle = new IPFS(ipfsAddress, port);
+    public String uploadFile(String ipfsAddress, int port, String filePath) throws IOException {
+        IPFS upHandle = new IPFS(ipfsAddress, port);
         System.out.println("IPFS node initialized successfully.");
-    }
-
-    public String uploadFile(String filePath) throws IOException {
         System.out.println("Uploading file: " + filePath);
         NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File(filePath));
-        MerkleNode addResult = this.ipfsHandle.add(file).get(0);
+        MerkleNode addResult = upHandle.add(file).get(0);
         System.out.println("Upload finished");
         return addResult.hash.toString();
     }
 
-    public void downloadFile(String hash, String dstFile) {
+    public void downloadFile(String ipfsAddress, int port, String hash, String dstFile) {
+        IPFS downHandle = new IPFS(ipfsAddress, port);
+        System.out.println("IPFS node initialized successfully.");
         System.out.println("Downloading file: " + dstFile);
         byte[] data = null;
         try {
-            data = this.ipfsHandle.cat(Multihash.fromBase58(hash));
+            data = downHandle.cat(Multihash.fromBase58(hash));
         } catch (IOException e) {
             e.printStackTrace();
         }
