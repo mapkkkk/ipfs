@@ -22,7 +22,8 @@ public class Main {
         String uploadHashRes = fileOp.uploadFile(serverIP, serverPort0, uploadFilePath);
         System.out.println("File CID is: " + uploadHashRes);
         // 从node1下载
-        fileOp.downloadFile(serverIP, serverPort1, downloadFileHash, downloadDst);
+        boolean ifDownload = fileOp.downloadFile(serverIP, serverPort1, downloadFileHash, downloadDst);
+        System.out.println("Download result: " + ifDownload);
     }
 
     public static void main(String[] args) {
