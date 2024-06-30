@@ -11,14 +11,12 @@ import java.io.IOException;
 
 public class fileOperation implements fileOperationInterface {
 
-    public String uploadFile(String ipfsAddress, int port, String filePath) throws IOException {
+    public String uploadFile(String ipfsAddress, int port, String filePath) {
         try {
             IPFS upHandle = new IPFS(ipfsAddress, port);
-            // System.out.println("IPFS node initialized successfully!");
-            // System.out.println("Uploading file: " + filePath);
             NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File(filePath));
             MerkleNode addResult = upHandle.add(file).getFirst();
-            System.out.println("[INFO] Upload finished!" + " File Name: " + filePath + " File Hash: " + addResult.hash.toString());
+            System.out.println("[INFO] Upload finished!" + " Hash: " + addResult.hash.toString());
             return addResult.hash.toString();
         } catch (IOException e) {
             System.out.println("[ERROR] File Upload Failed!");
@@ -28,8 +26,6 @@ public class fileOperation implements fileOperationInterface {
 
     public boolean downloadFile(String ipfsAddress, int port, String hash, String dstFile) {
         IPFS downHandle = new IPFS(ipfsAddress, port);
-        // System.out.println("IPFS node initialized successfully!");
-        // System.out.println("Downloading file: " + dstFile);
         byte[] data = null;
         try {
             data = downHandle.cat(Multihash.fromBase58(hash));
@@ -65,7 +61,7 @@ public class fileOperation implements fileOperationInterface {
                 }
             }
         }
-        System.out.println("Download finished!" + " File Name: " + dstFile + " File Hash: " + hash);
+        System.out.println("[INFO] Download finished!" + " Path: " + dstFile);
         return true;
     }
 }
