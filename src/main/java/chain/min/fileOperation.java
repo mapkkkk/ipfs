@@ -16,7 +16,7 @@ public class fileOperation implements fileOperationInterface {
             IPFS upHandle = new IPFS(ipfsAddress, port);
             NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File(filePath));
             MerkleNode addResult = upHandle.add(file).getFirst();
-            System.out.println("[INFO] Upload finished!" + " Hash: " + addResult.hash.toString());
+            System.out.println("[INFO] Upload finished!" + " CID: " + addResult.hash.toString());
             return addResult.hash.toString();
         } catch (IOException e) {
             System.out.println("[ERROR] File Upload Failed!");
@@ -30,7 +30,7 @@ public class fileOperation implements fileOperationInterface {
         try {
             data = downHandle.cat(Multihash.fromBase58(hash));
         } catch (IOException e) {
-            System.out.println("[ERROR] Hash Search Failed!");
+            System.out.println("[ERROR] CID Search Failed!");
             return false;
         }
         if (data != null && data.length > 0) {
@@ -38,7 +38,7 @@ public class fileOperation implements fileOperationInterface {
             if (file.exists()) {
                 boolean delFlag = file.delete();
                 if (!delFlag) {
-                    System.out.println("[ERROR] File Delete Failed!");
+                    System.out.println("[ERROR] Old Version File Delete Failed!");
                     return false;
                 }
             }
