@@ -26,7 +26,7 @@ public class fileOperation implements fileOperationInterface {
 
     public boolean downloadFile(String ipfsAddress, int port, String hash, String dstFile) {
         IPFS downHandle = new IPFS(ipfsAddress, port);
-        byte[] data = null;
+        byte[] data;
         try {
             data = downHandle.cat(Multihash.fromBase58(hash));
         } catch (IOException e) {
@@ -57,7 +57,6 @@ public class fileOperation implements fileOperationInterface {
                     }
                 } catch (IOException e) {
                     System.out.println("[ERROR] Download Task Close Failed!");
-                    return false;
                 }
             }
         }
