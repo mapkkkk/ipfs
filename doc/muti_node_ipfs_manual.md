@@ -1,4 +1,4 @@
-# 多节点IPFS搭建
+# 多节点IPFS搭建(不推荐！！！)
 
 ------
 
@@ -123,5 +123,9 @@ ipfs daemon
 ipfs daemon & 
 # 关闭ipfs
 ipfs shutdown
+
+# 重要！！！
+# 1. config里改router, node0改dhtserver, 其他改dhtclient
+# 2. 一定要ipfs swarm connect 才能添加节点
 ```
 
