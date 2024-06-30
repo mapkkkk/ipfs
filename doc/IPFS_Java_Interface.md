@@ -27,6 +27,9 @@ public String uploadFile(String ipfsAddress, int port, String filePath) throws I
 // port: 端口, 如5001
 // filePath: 待上传的文件路径, 如: "/home/ipfs/java_cli/test/upload/uploadTest.txt"
 // [返回值]: 上传的文件的CID(Hash)
+```
+
+```
 // e.g: 
 String serverIP = "192.168.31.51";
 int serverPort0 = 5000;
@@ -45,6 +48,9 @@ public boolean downloadFile(String ipfsAddress, int port, String hash, String ds
 // hash: 待下载的文件CID, 如: "QmV2MRPvrkbbHTP7EkPJfoMeZG7QCey9zE5a1EHYCEZ29Q"
 // dstFile: 文件下载后保存的路径, 如: "/home/ipfs/java_cli/test/download/downloadRes.txt"
 // [返回值]: 是否下载成功(boolean), True则下载成功
+```
+
+```
 // e.g: 
 String serverIP = "192.168.31.51";
 int serverPort1 = 5001;
