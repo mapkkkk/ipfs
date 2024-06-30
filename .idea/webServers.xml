@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="32c03743-523e-4871-a269-ddf6c232c220" name="ipfs">
+        <fileTransfer rootFolder="/home/ipfs" accessType="SFTP" host="192.168.31.51" port="22" sshConfigId="745c17ab-e848-4864-8dcc-9c93963501b3" sshConfig="ipfs@192.168.31.51:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

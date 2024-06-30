@@ -6,7 +6,7 @@ public class Main {
 
     public static void fileTest() throws IOException {
         fileOperation fileOp = new fileOperation();
-        String serverIP = "192.168.31.208";
+        String serverIP = "192.168.31.51";
         int serverPort = 5001;
         String uploadFilePath = "D:\\code\\ipfs\\ipfs\\test\\upload\\uploadtest.txt";
         // String downloadFileHash = "QmRZtguPjYdrDDZ6V2BrsUKfZoptoVPqbyYxzbZD5Wj2sz";

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="192.168.31.51" id="745c17ab-e848-4864-8dcc-9c93963501b3" keyPath="C:\Users\rhett\.ssh\id_ed25519" port="22" nameFormat="DESCRIPTIVE" username="ipfs" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
