@@ -8,16 +8,18 @@ public class Main {
         fileOperation fileOp = new fileOperation();
         String serverIP = "192.168.31.51";
         int serverPort = 5001;
+
         String uploadFilePath = "/home/ipfs/java_cli/test/upload/uploadtest.txt";
         // String downloadFileHash = "QmRZtguPjYdrDDZ6V2BrsUKfZoptoVPqbyYxzbZD5Wj2sz";
         String downloadFileHash = "QmV2MRPvrkbbHTP7EkPJfoMeZG7QCey9zE5a1EHYCEZ29Q";
         String downloadDst = "/home/ipfs/java_cli/test/download/downloadRes.txt";
         // 上传
         String uploadHashRes = fileOp.uploadFile(serverIP, serverPort, uploadFilePath);
-        System.out.println("uploadHashRes is: " + uploadHashRes);
+        System.out.println("File CID is: " + uploadHashRes);
         // 下载
         fileOp.downloadFile(serverIP, serverPort, downloadFileHash, downloadDst);
     }
+
     public static void main(String[] args) {
         try {
             fileTest();
