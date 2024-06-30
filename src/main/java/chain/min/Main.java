@@ -5,11 +5,11 @@ import java.io.IOException;
 public class Main {
 
     public static void fileTest() throws IOException {
-        fileOperation fileOp = new fileOperation();
         String serverIP = "192.168.31.51";
         int serverPort = 5001;
 
-        String uploadFilePath = "/home/ipfs/java_cli/test/upload/uploadtest.txt";
+        fileOperation fileOp = new fileOperation();
+        String uploadFilePath = "/home/ipfs/java_cli/test/upload/uploadTest.txt";
         // String downloadFileHash = "QmRZtguPjYdrDDZ6V2BrsUKfZoptoVPqbyYxzbZD5Wj2sz";
         String downloadFileHash = "QmV2MRPvrkbbHTP7EkPJfoMeZG7QCey9zE5a1EHYCEZ29Q";
         String downloadDst = "/home/ipfs/java_cli/test/download/downloadRes.txt";

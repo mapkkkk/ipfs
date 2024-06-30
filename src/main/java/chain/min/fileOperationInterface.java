@@ -5,6 +5,6 @@ import java.io.IOException;
 public interface fileOperationInterface {
     // 上传文件到IPFS
     String uploadFile(String ipfsAddress, int port, String filePath) throws IOException;
-    // 下载文件
+    // 从IPFS下载文件
     void downloadFile(String ipfsAddress, int port, String hash, String dstFile);
 }
