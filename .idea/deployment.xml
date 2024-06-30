@@ -6,7 +6,7 @@
       <paths name="ipfs">
         <serverdata>
           <mappings>
-            <mapping deploy="/java_cli" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/ipfs" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
