@@ -4,5 +4,5 @@
 
 文件系统为`IPFS`，使用`Java`作为后端，实现文件和指纹上链
 
-`IPFS`配置见`IPFS配置.md`
+项目文档见`doc`文件夹，旧版本弃用文档见`old_version_docs`
 
