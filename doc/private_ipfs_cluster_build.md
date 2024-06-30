@@ -33,8 +33,10 @@ tar xvzf ipfs-cluster-ctl_v1.1.1_linux-amd64.tar.gz
 cd ipfs-cluster-ctl
 wget https://raw.githubusercontent.com/ipfs/ipfs-cluster/v1.1.1/docker-compose.yml
 # 修改docker-compose.yml, 取消节点0的port的注释
+# 具体内容见项目config/docker-compose.yml
 nano docker-compose.yml
 # 启动
 sudo docker-compose up
+# 现在有3个节点, 分别是0, 1, 2, ipfs端口分别是5000, 5001, 5002
 ```
 

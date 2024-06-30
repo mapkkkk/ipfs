@@ -13,17 +13,17 @@ public class fileOperation implements fileOperationInterface {
 
     public String uploadFile(String ipfsAddress, int port, String filePath) throws IOException {
         IPFS upHandle = new IPFS(ipfsAddress, port);
-        System.out.println("IPFS node initialized successfully.");
+        System.out.println("IPFS node initialized successfully!");
         System.out.println("Uploading file: " + filePath);
         NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File(filePath));
         MerkleNode addResult = upHandle.add(file).getFirst();
-        System.out.println("Upload finished");
+        System.out.println("Upload finished!");
         return addResult.hash.toString();
     }
 
     public void downloadFile(String ipfsAddress, int port, String hash, String dstFile) {
         IPFS downHandle = new IPFS(ipfsAddress, port);
-        System.out.println("IPFS node initialized successfully.");
+        System.out.println("IPFS node initialized successfully!");
         System.out.println("Downloading file: " + dstFile);
         byte[] data = null;
         try {
@@ -56,6 +56,6 @@ public class fileOperation implements fileOperationInterface {
                 }
             }
         }
-        System.out.println("Download finished");
+        System.out.println("Download finished!");
     }
 }
