@@ -20,10 +20,10 @@ public class Main {
 
         // 向node0上传
         String uploadHashRes = fileOp.uploadFile(serverIP, serverPort0, uploadFilePath);
-        System.out.println("File CID is: " + uploadHashRes);
+        System.out.println("Upload File CID is: " + uploadHashRes);
         // 从node1下载
         boolean ifDownload = fileOp.downloadFile(serverIP, serverPort1, downloadFileHash, downloadDst);
-        System.out.println("Download result: " + ifDownload);
+        System.out.println("Download Result: " + ifDownload);
     }
 
     public static void main(String[] args) {
