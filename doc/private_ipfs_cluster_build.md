@@ -40,3 +40,15 @@ sudo docker-compose up
 # 现在有3个节点, 分别是0, 1, 2, ipfs端口分别是5000, 5001, 5002
 ```
 
+
+## 暴露端口
+
+```bash
+# 本机端口转发
+su root
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A PREROUTING -p tcp --dport 5000 -j REDIRECT --to-ports 5000
+iptables -t nat -A PREROUTING -p tcp --dport 5001 -j REDIRECT --to-ports 5001
+iptables -t nat -A PREROUTING -p tcp --dport 5002 -j REDIRECT --to-ports 5002
+```
+
