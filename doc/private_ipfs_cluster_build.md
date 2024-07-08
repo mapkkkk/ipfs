@@ -52,3 +52,34 @@ iptables -t nat -A PREROUTING -p tcp --dport 5001 -j REDIRECT --to-ports 5001
 iptables -t nat -A PREROUTING -p tcp --dport 5002 -j REDIRECT --to-ports 5002
 ```
 
+## 设置`systemctl`自启动
+
+```bash
+sudo nano /lib/systemd/system/ipfs.service
+
+[Unit]
+Description=ipfs service
+Requires=docker.service
+After=network.target syslog.target docker.service 
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 1
+WorkingDirectory=/home/min/ipfs-cluster-ctl/
+ExecStart=/usr/bin/docker-compose up -d  
+ExecStop=/usr/bin/docker-compose down 
+TimeoutStartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+# 打开自启动
+sudo systemctl enable ipfs
+# 启动ipfs
+sudo systemctl start ipfs
+# 查看log
+sudo systemctl status ipfs
+```
+
