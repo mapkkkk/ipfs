@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
 
     public static void fileTest() throws IOException {
-        String serverIP = "192.168.144.136";
+        String serverIP = "101.200.162.128";
         int serverPort0 = 5000;
         int serverPort1 = 5001;
         // int serverPort2 = 5002;
