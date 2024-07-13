@@ -13,10 +13,10 @@ public class Main {
         // 创建fileOperation对象
         fileOperation fileOp = new fileOperation();
         // 上传文件路径
-        String uploadFilePath = "D:\\code\\ipfs\\ipfs\\test\\upload\\uploadTest.txt";
+        String uploadFilePath = ".\\test\\upload\\uploadTest.txt";
         // 下载文件哈希值和目标路径
         String downloadFileHash = "QmV2MRPvrkbbHTP7EkPJfoMeZG7QCey9zE5a1EHYCEZ29Q";
-        String downloadDst = "D:\\code\\ipfs\\ipfs\\test\\download\\downloadRes.txt";
+        String downloadDst = ".\\test\\download\\downloadRes.txt";
 
         // 向node0上传
         String uploadHashRes = fileOp.uploadFile(serverIP, serverPort0, uploadFilePath);
